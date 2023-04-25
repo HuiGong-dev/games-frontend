@@ -13,10 +13,10 @@ const Detail = ({ getSingleGame, game, reviews, setReviews }) => {
   }, []);
 
   return (
-    <div className="flex justify-center border-2 h-screen border-white">
+    <div className="flex justify-center  h-screen">
       <div className={`flex flex-col w-3/4 h-full bg-neutral-950 `}>
         <div className="flex h-1/2 flex-row content-start justify-between">
-          <Trailer videoLink={game?.movies[0]} />
+          <Trailer videoLink={game?.movies[1]} />
           <Info
             name={game?.name}
             genres={game?.genres}
@@ -25,7 +25,11 @@ const Detail = ({ getSingleGame, game, reviews, setReviews }) => {
           />
         </div>
 
-        <Reviews reviews={reviews} setReviews={setReviews} />
+        <Reviews
+          reviews={reviews}
+          setReviews={setReviews}
+          steamId={game?.steamId}
+        />
       </div>
     </div>
   );
