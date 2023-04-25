@@ -1,7 +1,29 @@
 import React from 'react';
 
-const Info = () => {
-  return <div>Info</div>;
+const Info = ({ name, genres, header, releaseDate }) => {
+  return (
+    <div className="flex flex-col p-2 justify-normal  border rounded-md ml-2 drop-shadow-md bg-neutral-900 border-neutral-900">
+      {header != null ? <img src={header} alt="game poster" /> : 'name'}
+      <div className="flex flex-col px-5 py-5 justify-normal">
+        <div className="flex flex-row ">
+          <strong className="pr-2">Name:</strong> {name}
+        </div>
+        <div className="flex flex-row py-2">
+          <strong className="pr-2">Genre:</strong>{' '}
+          {genres?.map((genre, index) => {
+            return (
+              <span key={index} className="pl-1">
+                {genre}
+              </span>
+            );
+          })}
+        </div>
+        <div className="flex flex-row py-2">
+          <strong className="pr-2 ">Release Date:</strong> {releaseDate}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Info;
