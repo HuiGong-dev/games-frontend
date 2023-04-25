@@ -3,8 +3,8 @@ import ReactPlayer from 'react-player';
 
 const Trailer = ({ videoLink }) => {
   return (
-    <div className=" flex justify-center border border-black drop-shadow-md ">
-      <div className="h-[500px] w-[900px] p-2">
+    <div className=" flex w-2/3 justify-center border border-black drop-shadow-md ">
+      <div className="w-full h-full p-2">
         {videoLink != null ? (
           <ReactPlayer
             controls={true}

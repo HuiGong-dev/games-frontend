@@ -25,7 +25,7 @@ function App() {
     try {
       const response = await api.get(`/api/v1/games/${steamId}`);
       setGame(response.data);
-      setReviews(response.data.reviews);
+      setReviews(response.data.reviewIds);
     } catch (error) {
       console.error(error);
     }

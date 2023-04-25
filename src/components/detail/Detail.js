@@ -14,9 +14,9 @@ const Detail = ({ getSingleGame, game, reviews, setReviews }) => {
   }, []);
 
   return (
-    <div className="flex justify-center">
-      <div className={`flex flex-col w-2/3 bg-neutral-950 `}>
-        <div className="flex flex-row content-start justify-between">
+    <div className="flex justify-center border-2 h-screen border-white">
+      <div className={`flex flex-col w-3/4 h-full bg-neutral-950 `}>
+        <div className="flex h-1/2 flex-row content-start justify-between">
           <Trailer videoLink={game?.movies[0]} />
           <Info
             name={game?.name}
@@ -26,7 +26,7 @@ const Detail = ({ getSingleGame, game, reviews, setReviews }) => {
           />
         </div>
 
-        <Reviews reviews={game?.reviewIds} />
+        <Reviews reviews={reviews} />
       </div>
     </div>
   );
