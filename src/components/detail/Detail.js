@@ -25,7 +25,7 @@ const Detail = ({ getSingleGame, game, reviews, setReviews }) => {
           />
         </div>
 
-        <Reviews reviews={reviews} />
+        <Reviews reviews={reviews} setReviews={setReviews} />
       </div>
     </div>
   );
