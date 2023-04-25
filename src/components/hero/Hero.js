@@ -2,11 +2,14 @@ import React from 'react';
 import './Hero.css';
 import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
-import Button from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = ({ games }) => {
   const navigate = useNavigate();
+
+  const handleCheckDetail = (steamId) => {
+    navigate(`/detail/${steamId}`);
+  };
   return (
     <div className="w-screen bg-black">
       <Carousel>
@@ -22,17 +25,14 @@ const Hero = ({ games }) => {
                     <div className="flex text-white items-center text-xl">
                       <h4>{game.name}</h4>
                     </div>
-                    <div className="p-0 m-0 w-[150px]">
-                      <Link
-                        to={`/detail/${game.movies[0].substring(
-                          game.movies[0].length - 11
-                        )}`}
-                      >
-                        <div className="p-2 m-1 bg-green-300 cursor-pointer text-xl hover:bg-sky-500">
-                          Check detail
-                        </div>
-                      </Link>
-                    </div>
+                    <button
+                      className="rounded-full border-solid border-2 border-white px-3 py-1 cursor-pointer"
+                      onClick={() => {
+                        handleCheckDetail(game.steamId);
+                      }}
+                    >
+                      Check Detail
+                    </button>
                   </div>
                 </div>
               </div>
