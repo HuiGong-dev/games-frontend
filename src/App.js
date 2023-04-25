@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Layout from './components/Layout';
@@ -21,7 +21,7 @@ function App() {
     }
   };
 
-  const getSingleGame = async (steamId) => {
+  const getSingleGame = useCallback(async (steamId) => {
     try {
       const response = await api.get(`/api/v1/games/${steamId}`);
       setGame(response.data);
@@ -29,7 +29,7 @@ function App() {
     } catch (error) {
       console.error(error);
     }
-  };
+  }, []);
 
   useEffect(() => {
     getGames();

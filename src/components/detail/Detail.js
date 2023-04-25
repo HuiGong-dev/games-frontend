@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Trailer from '../trailer/Trailer';
+import Trailer from '../Trailer';
+import Info from '../Info';
+import Reviews from '../reviews/Reviews';
 
 const Detail = ({ getSingleGame, game, reviews, setReviews }) => {
   const params = useParams();
@@ -8,12 +10,13 @@ const Detail = ({ getSingleGame, game, reviews, setReviews }) => {
 
   useEffect(() => {
     getSingleGame(steamId);
-  }, []);
-  const youtubeId = game?.movies[0].substring(game.movies[0].length - 11);
+  }, [steamId]);
 
   return (
-    <div>
-      <Trailer youtubeId={youtubeId} />
+    <div className={`flex flex-col bg-no-repeat w-full h-full `}>
+      <Trailer videoLink={game?.movies[0]} />
+      <Info />
+      <Reviews />
     </div>
   );
 };
