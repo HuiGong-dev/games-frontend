@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../../api/axiosConfig';
 import Trailer from '../Trailer';
 import Info from '../Info';
 import Reviews from '../reviews/Reviews';
