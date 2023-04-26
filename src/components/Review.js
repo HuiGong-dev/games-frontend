@@ -1,10 +1,10 @@
 import React from 'react';
-import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
+import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 import { Row, Col } from 'react-bootstrap';
 
 const Review = ({ review, handleEditClick, deleteReviewById }) => {
   return (
-    <div key={review.id}>
+    <div className="mx-5 max-w-full">
       <Row className="hover:bg-neutral-800 pb-3">
         <Col className="flex flex-row justify-between pt-3">
           {review.body}
@@ -15,7 +15,7 @@ const Review = ({ review, handleEditClick, deleteReviewById }) => {
                 handleEditClick(review);
               }}
             >
-              <AiFillEdit />
+              <AiOutlineEdit />
             </button>
             <button
               className="text-lg hover:cursor-pointer"
@@ -23,7 +23,7 @@ const Review = ({ review, handleEditClick, deleteReviewById }) => {
                 deleteReviewById(review.id);
               }}
             >
-              <AiFillDelete />
+              <AiOutlineDelete />
             </button>
           </div>
         </Col>

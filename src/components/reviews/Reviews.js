@@ -63,8 +63,8 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
     setReviewBody(event.target.value);
   };
   return (
-    <Container className="container mx-auto h-1/2 flex flex-col  mt-10 justify-normal border rounded-md px-2 drop-shadow-md bg-neutral-900 border-neutral-900">
-      <Row className="font-bold pb-5">Reviews</Row>
+    <Container className="container mx-auto max-w-full flex flex-col  m-10  justify-normal border rounded-md px-2 drop-shadow-md bg-neutral-900 border-neutral-900">
+      <Row className="font-bold pb-5 text-xl mt-5 mx-5">Reviews</Row>
       <Row>
         <form onSubmit={handleSubmit} className="flex flex-row justify-between">
           <input
@@ -72,13 +72,15 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
             value={reviewBody}
             type="text"
             onChange={handleChange}
-            className="bg-black w-full pl-5 break-words h-20 text-lg rounded"
+            className="bg-black w-full max-w-full pl-5  break-words h-20 text-lg rounded"
             required
-            minlength="4"
-            maxlength="500"
+            minLength="4"
+            maxLength="100"
             placeholder="What do you think..."
           />
-          <button className="button px-10">Send</button>
+          <button className="button px-10 border rounded-lg text-lg font-bold hover:bg-black mx-5">
+            Send
+          </button>
         </form>
       </Row>
       <Row className="grid grid-auto-rows mt-4">
@@ -86,6 +88,7 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
           ? reviews?.map((review) => {
               return (
                 <Review
+                  key={review.id}
                   review={review}
                   handleEditClick={handleEditClick}
                   deleteReviewById={deleteReviewById}
