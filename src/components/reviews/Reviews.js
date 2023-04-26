@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Reviews.css';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import api from '../../api/axiosConfig';
@@ -6,6 +6,15 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const Reviews = ({ reviews, setReviews, steamId }) => {
   const [reviewBody, setReviewBody] = useState('');
+  const [currentReviewId, setCurrentReviewId] = useState();
+  const [showEdit, setShowEdit] = useState(false);
+  const inputRef = useRef(null);
+  const handleEditClick = (review) => {
+    setCurrentReviewId(review.id);
+    setReviewBody(review.body);
+    inputRef.current.focus();
+    setShowEdit(true);
+  };
   const deleteReviewById = async (id) => {
     api.delete(`/api/v1/reviews/${id}`);
     const updatedReviews = reviews.filter((review) => {
@@ -25,11 +34,30 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
     );
     setReviews([...reviews, response.data]);
   };
+  const updateReview = async () => {
+    try {
+      const response = await api.put(`/api/v1/reviews/${currentReviewId}`, {
+        reviewBody,
+      });
+      const updatedReviews = reviews.map((review) => {
+        if (review.id === currentReviewId) {
+          return { ...review, ...response.data };
+        }
+        return review;
+      });
+      setReviews(updatedReviews);
+      setShowEdit(false);
+      setCurrentReviewId(null);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createReview(reviewBody);
+    showEdit ? updateReview() : createReview(reviewBody);
     setReviewBody('');
+    inputRef.current.blur();
   };
   const handleChange = (event) => {
     setReviewBody(event.target.value);
@@ -40,6 +68,7 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
       <Row>
         <form onSubmit={handleSubmit} className="flex flex-row justify-between">
           <input
+            ref={inputRef}
             value={reviewBody}
             type="text"
             onChange={handleChange}
@@ -53,12 +82,17 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
         {reviews !== []
           ? reviews?.map((review) => {
               return (
-                <div key={review.id} className="pt-3 hover:bg-neutral-800">
-                  <Row>
-                    <Col className="flex flex-row justify-between">
+                <div key={review.id}>
+                  <Row className="hover:bg-neutral-800 pb-3">
+                    <Col className="flex flex-row justify-between pt-3">
                       {review.body}
                       <div>
-                        <button className="mr-4 text-lg  hover:cursor-pointer">
+                        <button
+                          className="mr-4 text-lg  hover:cursor-pointer"
+                          onClick={() => {
+                            handleEditClick(review);
+                          }}
+                        >
                           <AiFillEdit />
                         </button>
                         <button
@@ -74,7 +108,7 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
                   </Row>
                   <Row>
                     <Col>
-                      <hr />
+                      <hr className="border-gray-800" />
                     </Col>
                   </Row>
                 </div>
