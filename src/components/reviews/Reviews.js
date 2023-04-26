@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import './Reviews.css';
-import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
+import Review from '../Review';
 import api from '../../api/axiosConfig';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 const Reviews = ({ reviews, setReviews, steamId }) => {
   const [reviewBody, setReviewBody] = useState('');
@@ -72,46 +72,24 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
             value={reviewBody}
             type="text"
             onChange={handleChange}
-            className="bg-black w-full pl-2"
+            className="bg-black w-full pl-5 break-words h-20 text-lg rounded"
+            required
+            minlength="4"
+            maxlength="500"
             placeholder="What do you think..."
           />
-          <button className="button px-2">Add Review</button>
+          <button className="button px-10">Send</button>
         </form>
       </Row>
       <Row className="grid grid-auto-rows mt-4">
         {reviews !== []
           ? reviews?.map((review) => {
               return (
-                <div key={review.id}>
-                  <Row className="hover:bg-neutral-800 pb-3">
-                    <Col className="flex flex-row justify-between pt-3">
-                      {review.body}
-                      <div>
-                        <button
-                          className="mr-4 text-lg  hover:cursor-pointer"
-                          onClick={() => {
-                            handleEditClick(review);
-                          }}
-                        >
-                          <AiFillEdit />
-                        </button>
-                        <button
-                          className="text-lg hover:cursor-pointer"
-                          onClick={() => {
-                            deleteReviewById(review.id);
-                          }}
-                        >
-                          <AiFillDelete />
-                        </button>
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <hr className="border-gray-800" />
-                    </Col>
-                  </Row>
-                </div>
+                <Review
+                  review={review}
+                  handleEditClick={handleEditClick}
+                  deleteReviewById={deleteReviewById}
+                />
               );
             })
           : ''}
