@@ -6,11 +6,9 @@ const HeaderContainer = styled.div`
   min-height: 58px;
   ${tw`
     w-full
-    max-w-screen-xl
     flex
     auto-rows-max
     items-center
-    lg:px-12
     justify-between
     sticky
     top-0
