@@ -2,7 +2,7 @@ import React from 'react';
 
 const Info = ({ name, genres, header, releaseDate }) => {
   return (
-    <div className="flex w-1/3 flex-col p-2 justify-center items-center border rounded-md mx-2 drop-shadow-md bg-neutral-900 border-neutral-900">
+    <div className="flex w-1/3 flex-col my-2 p-2 justify-center items-center border rounded-md mx-2 drop-shadow-md bg-neutral-900 border-neutral-900">
       <strong className="text-xl px-5 pb-2">Game Information</strong>
       <div className="flex w-full flex-col p-2 justify-normal  border rounded-md  drop-shadow-md bg-neutral-900 border-neutral-900">
         {header != null ? <img src={header} alt="game poster" /> : 'name'}
