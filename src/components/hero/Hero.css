@@ -1,6 +1,6 @@
 .game-card {
   background-repeat: no-repeat;
-  width: 100%;
+  width: auto;
   height: 100%;
   background-size: cover;
   background-image: linear-gradient(

@@ -36,7 +36,7 @@ function App() {
   }, []);
   return (
     <div className="flex flex-col min-h-screen bg-black text-white ">
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home games={games} />}></Route>
