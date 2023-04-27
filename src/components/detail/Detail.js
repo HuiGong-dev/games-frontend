@@ -14,17 +14,15 @@ const Detail = ({ getSingleGame, game, reviews, setReviews }) => {
   }, []);
 
   return (
-    <Container className="flex auto-max justify-center  max-w-full h-full mt-10">
+    <Container className="flex auto-max justify-center  max-w-full h-full mt-10 bg-stone-800">
       <Container className={`flex flex-col auto-max h-full `}>
-        <Container className="flex h-1/2 flex-row content-start justify-between">
-          <Trailer videoLink={game?.movies[1]} />
-          <Info
-            name={game?.name}
-            genres={game?.genres}
-            header={game?.header}
-            releaseDate={game?.releaseDate}
-          />
-        </Container>
+        <Trailer videoLink={game?.movies[1]} />
+        <Info
+          name={game?.name}
+          genres={game?.genres}
+          header={game?.header}
+          releaseDate={game?.releaseDate}
+        />
 
         <Reviews
           reviews={reviews}
