@@ -8,14 +8,18 @@ import tw from 'twin.macro';
 
 const ButtonAndNameContainer = styled.div`
   ${tw`
-    relative
+    absolute
     flex 
     flex-col  
     w-auto 
     justify-center
     items-center
-    h-full
+    h-auto
+    top-3/4
+    left-1/2
+    
   `}
+  transform:translate(-50%, -50%)
 `;
 const NameContainer = styled.span`
   ${tw`
@@ -68,7 +72,7 @@ const Hero = ({ games }) => {
         {games?.map((game) => {
           return (
             <Paper key={game.steamId}>
-              <div className="h-screen bg-black text-white">
+              <div className="h-screen relative bg-black text-white">
                 <div
                   className="game-card"
                   style={{ '--img': `url(${game.backgroundRaw}` }}

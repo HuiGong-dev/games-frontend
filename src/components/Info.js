@@ -53,7 +53,7 @@ const UnderRightContainer = styled.div`
     flex 
     flex-col 
     px-10 
-    py-5
+    pt-5
     justify-start
   `}
   @media (max-width: 900px) {
