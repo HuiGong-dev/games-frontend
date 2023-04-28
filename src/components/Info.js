@@ -44,6 +44,8 @@ const UnderLeftContainer = styled.div`
   ${tw`
     h-auto
     w-auto
+    max-w-md
+
   `}
 `;
 const UnderRightContainer = styled.div`
@@ -66,27 +68,33 @@ const UnderRightContainer = styled.div`
 const Info = ({ name, genres, header, releaseDate }) => {
   return (
     <InfoContainer>
-      <strong className="text-2xl mb-2 mx-2">Game Information</strong>
+      <strong className="text-xl mb-2 mx-2 lg:text-2xl text-white">
+        Game Information
+      </strong>
       <UnderContainer>
         <UnderLeftContainer>
           {header != null ? <img src={header} alt="game poster" /> : 'name'}
         </UnderLeftContainer>
         <UnderRightContainer>
-          <div className="flex flex-row ">
-            <strong className="pr-2">Name:</strong> {name}
+          <div className="flex flex-row items-center">
+            <strong className="pr-2 text-electricblue text-md">Name:</strong>{' '}
+            {name}
           </div>
-          <div className="flex flex-row py-2">
-            <strong className="pr-2">Genre:</strong>{' '}
+          <div className="flex flex-row items-center">
+            <strong className="pr-2 text-electricblue text-md">Genre:</strong>{' '}
             {genres?.map((genre, index) => {
               return (
-                <span key={index} className="pl-1">
+                <span key={index} className="ml-2">
                   {genre}
                 </span>
               );
             })}
           </div>
-          <div className="flex flex-row py-2">
-            <strong className="pr-2 ">Release Date:</strong> {releaseDate}
+          <div className="flex flex-row items-center">
+            <strong className="pr-2 text-electricblue text-md">
+              Release Date:
+            </strong>{' '}
+            {releaseDate}
           </div>
         </UnderRightContainer>
       </UnderContainer>

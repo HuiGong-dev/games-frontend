@@ -64,7 +64,9 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
   };
   return (
     <Container className="container mx-auto max-w-full flex flex-col  m-10 mt-5 justify-normal border rounded-md px-2 drop-shadow-md bg-neutral-900 border-neutral-900">
-      <Row className="font-bold pb-5 text-2xl mt-5 mx-5">Reviews</Row>
+      <Row className="font-bold pb-5 text-xl lg:text-2xl mt-5 mx-5">
+        Reviews
+      </Row>
       <Row>
         <form onSubmit={handleSubmit} className="flex flex-row justify-between">
           <input
