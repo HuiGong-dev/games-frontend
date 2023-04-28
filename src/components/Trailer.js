@@ -9,6 +9,7 @@ const Trailer = ({ videoLink }) => {
           <ReactPlayer
             controls={true}
             playing={true}
+            muted={true}
             url={videoLink}
             width="100%"
             height="100%"
