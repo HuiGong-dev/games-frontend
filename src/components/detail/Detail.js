@@ -11,7 +11,7 @@ const Detail = ({ getSingleGame, game, reviews, setReviews }) => {
 
   useEffect(() => {
     getSingleGame(steamId);
-  }, []);
+  }, [getSingleGame, steamId]);
 
   return (
     <Container className="flex auto-max mt-5 justify-center  max-w-full h-full bg-black">

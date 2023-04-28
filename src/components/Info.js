@@ -62,6 +62,7 @@ const UnderRightContainer = styled.div`
   @media (max-width: 900px) {
     ${tw`
       px-0
+      text-lg
     `}
   }
 `;
