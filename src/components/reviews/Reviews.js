@@ -63,29 +63,32 @@ const Reviews = ({ reviews, setReviews, steamId }) => {
     setReviewBody(event.target.value);
   };
   return (
-    <Container className="container mx-auto max-w-full flex flex-col  m-10 mt-5 justify-normal border rounded-md px-2 drop-shadow-md bg-neutral-900 border-neutral-900">
+    <Container className="container mx-auto max-w-full flex flex-col m-10 mt-5 justify-normal border rounded-md px-2 drop-shadow-md bg-neutral-900 border-neutral-900">
       <Row className="font-bold pb-5 text-xl lg:text-2xl mt-5 mx-5">
         Reviews
       </Row>
       <Row>
-        <form onSubmit={handleSubmit} className="flex flex-row justify-between">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col items-end max-w-full mx-5"
+        >
           <input
             ref={inputRef}
             value={reviewBody}
             type="text"
             onChange={handleChange}
-            className="bg-black w-full max-w-full pl-5  break-words h-20 text-lg rounded"
+            className="bg-black w-full mt-3 px-5 break-words h-20 text-lg rounded-md border-transparent"
             required
             minLength="4"
-            maxLength="100"
+            maxLength="500"
             placeholder="What do you think..."
           />
-          <button className="button px-10 border rounded-lg text-lg font-bold hover:bg-black mx-5">
+          <button className="button w-fit px-5 mt-4 py-2 border border-electricblue rounded-lg text-md font-bold hover:border-transparent hover:bg-electricblue hover:text-black">
             Send
           </button>
         </form>
       </Row>
-      <Row className="grid grid-auto-rows mt-4">
+      <Row className="flex flex-col mt-4">
         {reviews !== []
           ? reviews?.map((review) => {
               return (
