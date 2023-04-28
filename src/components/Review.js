@@ -11,8 +11,8 @@ const ButtonContainer = styled.button`
     hover:border
     hover:rounded-md
     hover:text-electricblue
-    px-5 
-    py-2 
+    px-3 
+    py-1 
     border
     rounded-md
     

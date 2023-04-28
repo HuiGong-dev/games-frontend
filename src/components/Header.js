@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IoGameControllerOutline } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderContainer = styled.div`
   min-height: 68px;
@@ -19,6 +20,7 @@ const HeaderContainer = styled.div`
     border-y-gray-700
     opacity-80
     text-electricblue
+    cursor-pointer
   `}
 `;
 
@@ -36,8 +38,13 @@ const HeaderIconContainer = styled.div`
 `;
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleClickHeader = () => {
+    navigate(`/`);
+  };
   return (
-    <HeaderContainer>
+    <HeaderContainer onClick={() => handleClickHeader()}>
       <HeaderIconContainer>
         <IoGameControllerOutline />
       </HeaderIconContainer>

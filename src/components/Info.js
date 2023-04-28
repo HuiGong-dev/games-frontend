@@ -57,6 +57,7 @@ const UnderRightContainer = styled.div`
     px-10 
     pt-5
     justify-start
+    text-xl
   `}
   @media (max-width: 900px) {
     ${tw`
@@ -68,7 +69,7 @@ const UnderRightContainer = styled.div`
 const Info = ({ name, genres, header, releaseDate }) => {
   return (
     <InfoContainer>
-      <strong className="text-xl mb-2 mx-2 lg:text-2xl text-white">
+      <strong className="text-xl mb-2 mx-2 lg:text-2xl text-white hover:text-electricblue">
         Game Information
       </strong>
       <UnderContainer>
@@ -77,11 +78,10 @@ const Info = ({ name, genres, header, releaseDate }) => {
         </UnderLeftContainer>
         <UnderRightContainer>
           <div className="flex flex-row items-center">
-            <strong className="pr-2 text-electricblue text-md">Name:</strong>{' '}
-            {name}
+            <strong className="pr-2 text-electricblue ">Name:</strong> {name}
           </div>
           <div className="flex flex-row items-center">
-            <strong className="pr-2 text-electricblue text-md">Genre:</strong>{' '}
+            <strong className="pr-2 text-electricblue ">Genre:</strong>{' '}
             {genres?.map((genre, index) => {
               return (
                 <span key={index} className="ml-2">
@@ -91,9 +91,7 @@ const Info = ({ name, genres, header, releaseDate }) => {
             })}
           </div>
           <div className="flex flex-row items-center">
-            <strong className="pr-2 text-electricblue text-md">
-              Release Date:
-            </strong>{' '}
+            <strong className="pr-2 text-electricblue ">Release Date:</strong>{' '}
             {releaseDate}
           </div>
         </UnderRightContainer>
