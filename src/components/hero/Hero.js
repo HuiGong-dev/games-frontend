@@ -55,7 +55,7 @@ const ButtonContainer = styled.div`
     cursor-pointer
     hover:bg-transparent
     hover:text-white
-    hover:border-white
+    hover:border-electricblue
   `}
 `;
 

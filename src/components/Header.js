@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { IoGameControllerOutline } from 'react-icons/io5';
 
 const HeaderContainer = styled.div`
   min-height: 68px;
@@ -9,7 +10,6 @@ const HeaderContainer = styled.div`
     flex
     auto-rows-max
     items-center
-    justify-between
     sticky
     top-0
     z-10
@@ -18,19 +18,29 @@ const HeaderContainer = styled.div`
     border-solid
     border-y-gray-700
     opacity-80
+    text-electricblue
   `}
 `;
 
 const HeaderTextContainer = styled.span`
   ${tw`
-    px-5
-    
+    mx-2
+  `}
+`;
+
+const HeaderIconContainer = styled.div`
+  ${tw`
+    pl-5
+    text-2xl
   `}
 `;
 
 const Header = () => {
   return (
     <HeaderContainer>
+      <HeaderIconContainer>
+        <IoGameControllerOutline />
+      </HeaderIconContainer>
       <HeaderTextContainer>My Game Review</HeaderTextContainer>
     </HeaderContainer>
   );
