@@ -35,7 +35,7 @@ function App() {
     getGames();
   }, []);
   return (
-    <div className="flex flex-col min-h-screen h-full bg-black text-white ">
+    <div className="flex flex-col min-h-screen h-screen bg-black text-white ">
       <Header />
       <Routes>
         <Route path="/" element={<Layout />}>

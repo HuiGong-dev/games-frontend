@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 const HeaderContainer = styled.div`
-  min-height: 58px;
+  min-height: 68px;
   ${tw`
     w-full
     flex
@@ -17,6 +17,7 @@ const HeaderContainer = styled.div`
     border-b
     border-solid
     border-y-gray-700
+    opacity-80
   `}
 `;
 

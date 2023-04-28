@@ -11,7 +11,7 @@ const ButtonAndNameContainer = styled.div`
     absolute
     flex 
     flex-col  
-    w-auto 
+    w-full 
     justify-center
     items-center
     h-auto
@@ -30,7 +30,6 @@ const NameContainer = styled.span`
     items-center 
     text-xl 
     font-extrabold 
-    mr-2
   `}
 `;
 const ButtonContainer = styled.div`
@@ -67,7 +66,7 @@ const Hero = ({ games }) => {
     navigate(`/detail/${steamId}`);
   };
   return (
-    <div className="w-screen bg-black">
+    <div className="w-auto h-full bg-black">
       <Carousel>
         {games?.map((game) => {
           return (
